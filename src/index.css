@@ -1,3 +1,10 @@
+.App {
+  height: all;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -207,7 +214,7 @@ Menu
   border: 1px solid #222;
   border-radius: 5px;
   padding: 10px;
-  box-shadow: 10px 10px;
+  box-shadow: 8px 9px rgba(50, 50, 50, 0.7);
 }
 .menu-item:hover {
   transform: scale(1.02);
@@ -254,4 +261,16 @@ Menu
   .photo {
     height: 150px;
   }
+}
+.picture {
+  box-shadow: 4px 4px;
+  transition: 0.3s;
+  text-align: center;
+  max-width: 50rem;
+  border: 1px solid rgb(138, 138, 138);
+  border-radius: 5px;
+}
+
+.picture:hover {
+  transform: scale(1.02);
 }

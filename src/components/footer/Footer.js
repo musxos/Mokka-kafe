@@ -5,6 +5,10 @@ import React from "react";
 function Footer() {
   return (
     <div>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
       <hr />
       <p
         style={{
@@ -45,6 +49,7 @@ function Footer() {
           <AiFillLinkedin size={"40"} style={{ color: "rgb(50,50,50)" }} />
         </a>
       </div>
+      <br></br>
     </div>
   );
 }
