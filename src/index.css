@@ -204,12 +204,19 @@ Menu
   display: grid;
   gap: 1rem 2rem;
   max-width: 25rem;
+  border: 1px solid #222;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 10px 10px;
+}
+.menu-item:hover {
+  transform: scale(1.02);
 }
 .photo {
   object-fit: cover;
   height: 200px;
   width: 100%;
-  border: 0.25rem solid #2c2891;
+  border: 0.05rem solid #000000;
   border-radius: var(--radius);
   display: block;
 }

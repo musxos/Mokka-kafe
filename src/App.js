@@ -2,6 +2,7 @@ import Category from "./components/Category";
 import Menu from "./components/Menu";
 import items from "./db/data";
 import { useState } from "react";
+import Footer from "./components/footer/Footer";
 
 const allCategories = ["all", ...new Set(items.map((item) => item.category))];
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Category categories={categories} filterItems={filterItems} />
         <Menu items={menuItems} />
       </section>
+      <Footer />
     </main>
   );
 }
