@@ -61,12 +61,23 @@ function Admin() {
             <div className="modal-dialog">
               <div className="modal-content">
                 <div className="modal-header">
-                  <h5 className="modal-title" id="exampleModalLabel">
-                    <QRCode
-                      value={"http://qrmenu-bice.vercel.app/" + user.uid}
-                      renderAs="canvas"
-                    />
-                  </h5>
+                  <QRCode
+                    value={"http://qrmenu-bice.vercel.app/" + user.uid}
+                    size={128}
+                    bgColor={"#ffffff"}
+                    fgColor={"#000000"}
+                    level={"L"}
+                    includeMargin={false}
+                    renderAs={"svg"}
+                    imageSettings={{
+                      src: "https://static.zpao.com/favicon.png",
+                      x: null,
+                      y: null,
+                      height: 24,
+                      width: 24,
+                      excavate: true,
+                    }}
+                  />
 
                   <button
                     type="button"

@@ -7,6 +7,7 @@ import { movieCollectionRef } from "../db/firebase-collection";
 import AdminMenu from "./adminMenu";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useLogout } from "../hooks/useLogout";
+import QRCode from "qrcode.react";
 
 function Add() {
   const { logout } = useLogout();
@@ -68,9 +69,15 @@ function Add() {
           <i className="fa fa-plus"></i>
         </Link>
 
-        <Link to={"/" + user.uid} className="w3-bar-item w3-button">
-          <i className="fa fa-book"></i>
-        </Link>
+        <button
+          type="button"
+          className="w3-bar-item w3-button"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          data-bs-whatever="@mdo"
+        >
+          <i className="fa fa-qrcode "></i>
+        </button>
 
         <Link
           to="#"
@@ -157,6 +164,49 @@ function Add() {
             </div>
             <AdminMenu />
           </form>
+        </div>
+        <div
+          style={{
+            justifyContent: "center",
+
+            textAlign: "center",
+          }}
+          className="modal fade"
+          id="exampleModal"
+          tabIndex={-1}
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <QRCode
+                  value={"http://qrmenu-bice.vercel.app/" + user.uid}
+                  size={128}
+                  bgColor={"#ffffff"}
+                  fgColor={"#000000"}
+                  level={"L"}
+                  includeMargin={false}
+                  renderAs={"svg"}
+                  imageSettings={{
+                    src: "https://static.zpao.com/favicon.png",
+                    x: null,
+                    y: null,
+                    height: 24,
+                    width: 24,
+                    excavate: true,
+                  }}
+                />
+
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>
