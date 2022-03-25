@@ -1,58 +1,102 @@
 import Footer from "../components/footer/Footer";
-import { useNavigate } from "react-router-dom";
-import Login from "../pages/login";
+import { useState } from "react";
+import { useLogin } from "../hooks/useLogin";
+import { useSignup } from "../hooks/useSignup";
 
 function Open() {
-  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loginpage, setloginpage] = useState(false);
+  const { signup } = useSignup();
+  const { error, login } = useLogin();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    signup(email, password);
+
+    console.log(email, password);
+    setEmail("");
+    setPassword("");
+  };
+
+  const handleSubmitlogin = (e) => {
+    e.preventDefault();
+    // console.log(email, password);
+    login(email, password);
+    setPassword("");
+  };
   return (
-    <div className="App  row g-0">
-      <div style={{ marginTop: "170px" }}></div>
-
-      <div
-        className="col-6 col-md-5"
-        style={{
-          marginBottom: "48px",
-          padding: "60px",
-        }}
-      >
-        <h2 style={{ marginBottom: "28px" }} className="subtitle">
-          Welcome 👋 Let's make your QR menu!
-        </h2>
-        <form style={{ justifyContent: "center" }} class="row g-2">
-          <div class="col-auto">
-            <button type="submit" class="btn btn-outline-primary mb-3">
-              Login
-            </button>
-          </div>
-          <div class="col-auto">
-            <button
-              onClick={() => navigate("/login")}
-              type="submit"
-              class="btn btn-outline-primary mb-3"
-            >
-              Sing Up
-            </button>
-          </div>
-        </form>
+    <div className="container">
+      <div className="row">
+        <div
+          style={{
+            backgroundColor: "grey",
+            padding: "30px",
+            minHeight: "400px",
+          }}
+          className="col-sm-5"
+        >
+          {loginpage ? (
+            <div>
+              <h2>Sign In</h2>
+              <form onSubmit={handleSubmitlogin}>
+                <label>
+                  <span>Email Adresiniz:</span>
+                  <input
+                    required
+                    type="email"
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
+                  />
+                </label>
+                <label>
+                  <span>Parola:</span>
+                  <input
+                    required
+                    type="password"
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
+                  />
+                </label>
+                <button>Giriş</button>
+                {error && <p style={{ color: "orangered" }}>{error}</p>}
+              </form>
+            </div>
+          ) : (
+            <div>
+              <h2>Sign Up</h2>
+              <form onSubmit={handleSubmit}>
+                <label>
+                  <span>Email Adresiniz:</span>
+                  <input
+                    required
+                    type="email"
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
+                  />
+                </label>
+                <label>
+                  <span>Parola:</span>
+                  <input
+                    required
+                    type="password"
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
+                  />
+                </label>
+                <button>Üye Ol</button>
+                {error && <p style={{ color: "orangered" }}>{error}</p>}
+              </form>
+            </div>
+          )}
+          <button
+            onClick={() => setloginpage(!loginpage)}
+            className="btn btn-success"
+          >
+            {!loginpage ? "Sign In" : "Sign Up"}
+          </button>
+        </div>
       </div>
-      <div className="col-sm-6 col-md-7">
-        <label>
-          <a href="/demo" style={{ textDecoration: "none", color: "#2c2891" }}>
-            <img
-              className="picture"
-              alt="demo"
-              src="https://i.hizliresim.com/eeikfcf.png"
-              style={{
-                marginBottom: "2%",
-                width: "70%",
-                padding: "10px",
-              }}
-            />
-          </a>
-        </label>
-      </div>
-
-      <Footer />
     </div>
   );
 }
