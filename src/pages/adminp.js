@@ -10,7 +10,6 @@ function Admin() {
   const { logout } = useLogout();
   const { user } = useAuthContext();
   const [qr, setqr] = useState(false);
-  console.log(<QRCode value="http://facebook.github.io/react/" />);
 
   return (
     <>
@@ -50,7 +49,7 @@ function Admin() {
           <div
             style={{
               justifyContent: "center",
-              display: "block",
+
               textAlign: "center",
             }}
             className="modal fade"
@@ -62,12 +61,12 @@ function Admin() {
             <div className="modal-dialog">
               <div className="modal-content">
                 <div className="modal-header">
-                  <h2 className="modal-title" id="exampleModalLabel">
+                  <h5 className="modal-title" id="exampleModalLabel">
                     <QRCode
                       value={"http://qrmenu-bice.vercel.app/" + user.uid}
                       renderAs="canvas"
                     />
-                  </h2>
+                  </h5>
 
                   <button
                     type="button"
