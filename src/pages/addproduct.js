@@ -64,11 +64,11 @@ function Add() {
         <Link to="/admin" className="w3-bar-item w3-button">
           <i className="fa fa-home"></i>
         </Link>
-        <Link to="/add" className="w3-bar-item w3-button">
+        <Link to="/admin/add" className="w3-bar-item w3-button">
           <i className="fa fa-plus"></i>
         </Link>
 
-        <Link to="/demo" className="w3-bar-item w3-button">
+        <Link to={"/" + user.uid} className="w3-bar-item w3-button">
           <i className="fa fa-book"></i>
         </Link>
 

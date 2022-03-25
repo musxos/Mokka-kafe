@@ -1,16 +1,10 @@
-import Menu from "../components/Menu";
-import Category from "../components/Category";
-import { onSnapshot, query, orderBy } from "firebase/firestore";
-import { movieCollectionRef } from "../db/firebase-collection";
-import { useState, useEffect } from "react";
-import { useAuthContext } from "../hooks/useAuthContext";
-import { useCollection } from "../hooks/useCollection";
+import { useState } from "react";
+import Category from "./Category";
+import Menu from "./Menu";
 
-function Qrmenu() {
-  const { user } = useAuthContext();
-
-  let items = useCollection("qrmenu", user.auth).documents;
-  items = items && items.filter((item) => item.uid === user.uid);
+function Page({ items, item }) {
+  items = items && items.filter((a) => item.uid === a.uid);
+  console.log(items);
 
   const allCategories = [
     ...new Set(items && items.map((item) => item.category)),
@@ -29,12 +23,11 @@ function Qrmenu() {
     const newItems = items.filter((item) => item.category === category);
     newItems.length < 1 ? setMenuItems(items) : setMenuItems(newItems);
   };
-
   return (
     <main>
       <section className="menu section">
         <div className="title">
-          <h2>{user.uid}</h2>
+          <h2>{item.uid}</h2>
         </div>
         <div className="underline"></div>
         <Category categories={categories} filterItems={filterItems} />
@@ -44,4 +37,4 @@ function Qrmenu() {
   );
 }
 
-export default Qrmenu;
+export default Page;

@@ -13,9 +13,8 @@ function AdminMenu() {
       .catch((error) => console.log(error.message));
   }
 
-  const a = useCollection("qrmenu", user.auth).documents;
-  console.log(a);
-
+  let a = useCollection("qrmenu", user.auth).documents;
+  a = a && a.filter((item) => item.uid === user.uid);
   return (
     <div style={{ marginTop: "40px" }}>
       <table id="customers">

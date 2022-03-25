@@ -2,14 +2,22 @@ import Footer from "../components/footer/Footer";
 import { useState } from "react";
 import { useLogin } from "../hooks/useLogin";
 import { useSignup } from "../hooks/useSignup";
+import { useAuthContext } from "../hooks/useAuthContext";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Open() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginpage, setloginpage] = useState(false);
   const { signup } = useSignup();
   const { error, login } = useLogin();
+  const { authIsReady, user } = useAuthContext();
 
+  useEffect(() => {
+    user && user && navigate("/admin");
+  }, [user]);
   const handleSubmit = (e) => {
     e.preventDefault();
     signup(email, password);
