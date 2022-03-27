@@ -16,7 +16,9 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path={"/"} element={<Open />} />
+        {!JSON.parse(localStorage.getItem("login")) && (
+          <Route path={"/"} element={<Open />} />
+        )}
         <Route path={"/profil"} element={<Qrmenu />} />
         <Route path={"/demo"} element={<Demo />} />
         {items &&

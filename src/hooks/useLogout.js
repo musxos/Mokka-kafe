@@ -7,10 +7,12 @@ export const useLogout = () => {
   const { dispatch } = useAuthContext();
   const navigate = useNavigate();
   const logout = () => {
+    localStorage.clear();
     signOut(auth)
       .then(() => {
         // console.log("çıkış yapıldı");
         dispatch({ type: "LOGOUT" });
+
         navigate("/");
       })
       .catch((err) => {

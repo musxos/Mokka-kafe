@@ -70,7 +70,7 @@ function Admin() {
                     includeMargin={false}
                     renderAs={"svg"}
                     imageSettings={{
-                      src: "https://static.zpao.com/favicon.png",
+                      src: "https://upload.wikimedia.org/wikipedia/commons/3/31/QR_icon.svg",
                       x: null,
                       y: null,
                       height: 24,

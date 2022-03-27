@@ -16,6 +16,8 @@ export const useLogin = () => {
       .then((res) => {
         // console.log("kullanıcı giriş yaptı", res.user);
         dispatch({ type: "LOGIN", payload: res.user });
+        localStorage.setItem("login", "true");
+
         navigate("/admin");
       })
       .catch((err) => {

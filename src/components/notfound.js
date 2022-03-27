@@ -1,6 +1,8 @@
+import react from "react";
+
 function notfound() {
   return (
-    <div className="container">
+    <div className="App">
       <div
         style={{
           justifyContent: "center",
@@ -9,20 +11,6 @@ function notfound() {
           display: "flex",
         }}
       >
-        <div
-          style={{ margin: "8px" }}
-          className="spinner-grow text-primary"
-          role="status"
-        >
-          <span className="visually-hidden">Loading...</span>
-        </div>
-        <div
-          style={{ margin: "8px" }}
-          className="spinner-grow text-secondary"
-          role="status"
-        >
-          <span className="visually-hidden">Loading...</span>
-        </div>
         <div
           style={{ margin: "8px" }}
           className="spinner-grow text-success"
@@ -41,13 +29,6 @@ function notfound() {
         <div
           style={{ margin: "8px" }}
           className="spinner-grow text-warning"
-          role="status"
-        >
-          <span className="visually-hidden">Loading...</span>
-        </div>
-        <div
-          style={{ margin: "8px" }}
-          className="spinner-grow text-info"
           role="status"
         >
           <span className="visually-hidden">Loading...</span>
