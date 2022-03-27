@@ -135,9 +135,9 @@ function Open() {
                 </Link>
               </div>
             </div>
+            <Footer />
           </div>
         </form>
-        <Footer />
       </div>
     </div>
   );
