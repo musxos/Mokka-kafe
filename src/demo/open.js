@@ -6,7 +6,6 @@ import { useSignup } from "../hooks/useSignup";
 import { useAuthContext } from "../hooks/useAuthContext";
 import QRCode from "qrcode.react";
 import { Link } from "react-router-dom";
-import { color } from "@chakra-ui/react";
 
 function Open() {
   const [email, setEmail] = useState("");
