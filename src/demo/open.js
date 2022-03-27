@@ -35,7 +35,7 @@ function Open() {
     <div
       style={{
         backgroundColor: "#313131",
-        minHeight: "100vh",
+        height: "100vh",
       }}
     >
       <div className="container" style={{ height: "100%", color: "white" }}>
@@ -72,7 +72,12 @@ function Open() {
               />
 
               {email == "" && error && (
-                <p style={{ color: "orangered" }}>{error}</p>
+                <div class="alert alert-dark" role="alert">
+                  <p style={{ color: "orangered" }}>
+                    {error.includes("Firebase") &&
+                      "Error (auth/invalid-email)."}
+                  </p>
+                </div>
               )}
 
               <div
@@ -132,8 +137,8 @@ function Open() {
             </div>
           </div>
         </form>
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 }
