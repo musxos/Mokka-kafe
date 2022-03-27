@@ -131,7 +131,7 @@ function Open() {
                     className="btn btn-primary"
                   >
                     For DEMO
-                  </button>{" "}
+                  </button>
                 </Link>
               </div>
             </div>
