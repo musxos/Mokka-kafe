@@ -29,10 +29,7 @@ function Footer() {
         >
           /omerSut
         </a>
-        <br />
       </p>
-
-      <br></br>
     </div>
   );
 }
