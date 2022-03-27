@@ -14,13 +14,14 @@ function Footer() {
         style={{
           textAlign: "center",
           marginTop: "10px",
+          color: "white",
         }}
       >
         Developed by{" "}
         <a
           style={{
             textDecoration: "none",
-            color: "rgb(50,50,50)",
+            color: "white",
             fontSize: "20px",
           }}
           href="https://www.linkedin.com/in/omersut/"
@@ -39,14 +40,14 @@ function Footer() {
         }}
       >
         <a href="https://www.github.com/omersut/" target="blank">
-          <BsGithub size={"33"} style={{ color: "rgb(50,50,50)" }} />
+          <BsGithub size={"33"} style={{ color: "white" }} />
         </a>
         <a
           className="ms-2"
           href="https://www.linkedin.com/in/omersut/"
           target="blank"
         >
-          <AiFillLinkedin size={"40"} style={{ color: "rgb(50,50,50)" }} />
+          <AiFillLinkedin size={"40"} style={{ color: "white" }} />
         </a>
       </div>
       <br></br>

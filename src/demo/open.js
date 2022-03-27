@@ -39,7 +39,7 @@ function Open() {
     >
       <div className="container" style={{ height: "100%", color: "white" }}>
         <form>
-          <div class="row" style={{ paddingTop: "90px" }}>
+          <div class="row" style={{ paddingTop: "120px" }}>
             <div class="col" style={{ paddingTop: "3.2%" }}>
               <h3 style={{ color: "white" }}>
                 WELC
@@ -129,6 +129,7 @@ function Open() {
           </div>
         </form>
       </div>
+      <Footer />
     </div>
   );
 }
