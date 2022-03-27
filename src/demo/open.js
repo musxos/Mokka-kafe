@@ -29,6 +29,7 @@ function Open() {
     // console.log(email, password);
     login(email, password);
     setPassword("");
+    setEmail("");
   };
   return (
     <div
@@ -70,6 +71,10 @@ function Open() {
                 required
               />
 
+              {email == "" && error && (
+                <p style={{ color: "orangered" }}>{error}</p>
+              )}
+
               <div
                 style={{
                   justifyContent: "space-between",
@@ -93,7 +98,6 @@ function Open() {
                 >
                   Login
                 </button>
-                {error && <p style={{ color: "orangered" }}>{error}</p>}
               </div>
             </div>
             <div class="col" style={{ padding: "35px", marginTop: "1%" }}>
