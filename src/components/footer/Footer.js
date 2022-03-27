@@ -10,7 +10,7 @@ function Footer() {
       <br></br>
       <br></br>
       <hr />
-      <p
+      <div
         style={{
           textAlign: "center",
           marginTop: "10px",
@@ -29,7 +29,7 @@ function Footer() {
         >
           /omerSut
         </a>
-      </p>
+      </div>
     </div>
   );
 }
