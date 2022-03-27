@@ -4,7 +4,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <div>
+    <div style={{ backgroundColor: "#313131" }}>
       <br></br>
       <br></br>
       <br></br>
