@@ -31,25 +31,7 @@ function Footer() {
         </a>
         <br />
       </p>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          marginTop: "-14px",
-        }}
-      >
-        <a href="https://www.github.com/omersut/" target="blank">
-          <BsGithub size={"33"} style={{ color: "white" }} />
-        </a>
-        <a
-          className="ms-2"
-          href="https://www.linkedin.com/in/omersut/"
-          target="blank"
-        >
-          <AiFillLinkedin size={"40"} style={{ color: "white" }} />
-        </a>
-      </div>
+
       <br></br>
     </div>
   );
