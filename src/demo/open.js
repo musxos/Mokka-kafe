@@ -34,26 +34,25 @@ function Open() {
   return (
     <div
       style={{
-        paddingTop: "140px",
         backgroundColor: "#313131",
         minHeight: "100vh",
       }}
     >
-      <div className="container" style={{ height: "100%" }}>
+      <div className="container" style={{ height: "100%", color: "white" }}>
         <form>
-          <div class="row">
+          <div class="row" style={{ paddingTop: "90px" }}>
             <div class="col" style={{ paddingTop: "3.2%" }}>
-              <h2 style={{ color: "white" }}>
+              <h3 style={{ color: "white" }}>
                 WELC
                 <div
-                  style={{ margin: "4px" }}
+                  style={{ margin: "4px", width: "20px", height: "21px" }}
                   className="spinner-grow text-primary"
                   role="status"
                 >
                   <span className="visually-hidden">Loading...</span>
                 </div>
-                ME
-              </h2>
+                ME, Let's make your qr menu!
+              </h3>
 
               <input
                 type="email"

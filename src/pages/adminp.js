@@ -15,7 +15,7 @@ function Admin() {
     <>
       <div
         className="w3-sidebar w3-bar-block w3-light w3-xxlarge"
-        style={{ width: "70px" }}
+        style={{ width: "70px", backgroundColor: "#313131", color: "white" }}
       >
         <Link to="/admin" className="w3-bar-item w3-button">
           <i className="fa fa-home"></i>
