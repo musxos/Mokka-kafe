@@ -3,7 +3,7 @@ import Menu from "../components/Menu";
 import items from "../db/data";
 import { useState } from "react";
 
-const allCategories = ["all", ...new Set(items.map((item) => item.category))];
+const allCategories = [...new Set(items.map((item) => item.category))];
 function App() {
   const [menuItems, setMenuItems] = useState(items);
   const [categories, setCategories] = useState(allCategories);

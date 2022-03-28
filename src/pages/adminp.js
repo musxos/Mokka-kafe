@@ -61,23 +61,25 @@ function Admin() {
             <div className="modal-dialog">
               <div className="modal-content">
                 <div className="modal-header">
-                  <QRCode
-                    value={"http://qrmenu-bice.vercel.app/" + user.uid}
-                    size={128}
-                    bgColor={"#ffffff"}
-                    fgColor={"#000000"}
-                    level={"L"}
-                    includeMargin={false}
-                    renderAs={"svg"}
-                    imageSettings={{
-                      src: "https://upload.wikimedia.org/wikipedia/commons/3/31/QR_icon.svg",
-                      x: null,
-                      y: null,
-                      height: 24,
-                      width: 24,
-                      excavate: true,
-                    }}
-                  />
+                  {user && (
+                    <QRCode
+                      value={"http://qrmenu-bice.vercel.app/" + user.uid}
+                      size={128}
+                      bgColor={"#ffffff"}
+                      fgColor={"#000000"}
+                      level={"L"}
+                      includeMargin={false}
+                      renderAs={"svg"}
+                      imageSettings={{
+                        src: "https://upload.wikimedia.org/wikipedia/commons/3/31/QR_icon.svg",
+                        x: null,
+                        y: null,
+                        height: 2,
+                        width: 2,
+                        excavate: true,
+                      }}
+                    />
+                  )}
 
                   <button
                     type="button"

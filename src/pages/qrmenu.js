@@ -9,7 +9,7 @@ import { useCollection } from "../hooks/useCollection";
 function Qrmenu() {
   const { user } = useAuthContext();
 
-  let items = useCollection("qrmenu", user.auth).documents;
+  let items = useCollection("qrmenu").documents;
   items = items && items.filter((item) => item.uid === user.uid);
 
   const allCategories = [
@@ -34,7 +34,7 @@ function Qrmenu() {
     <main>
       <section className="menu section">
         <div className="title">
-          <h2>{user.uid}</h2>
+          <h2>{user && user.uid}</h2>
         </div>
         <div className="underline"></div>
         <Category categories={categories} filterItems={filterItems} />

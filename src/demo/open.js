@@ -6,6 +6,7 @@ import { useSignup } from "../hooks/useSignup";
 import { useAuthContext } from "../hooks/useAuthContext";
 import QRCode from "qrcode.react";
 import { Link } from "react-router-dom";
+import Adminp from "../pages/adminp";
 
 function Open() {
   const [email, setEmail] = useState("");
@@ -17,6 +18,7 @@ function Open() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     signup(email, password);
 
     console.log(email, password);
@@ -39,21 +41,20 @@ function Open() {
       }}
     >
       <div className="container" style={{ height: "100%", color: "white" }}>
-        <form>
-          <div class="row" style={{ paddingTop: "120px" }}>
-            <div class="col" style={{ paddingTop: "3.2%" }}>
-              <h3 style={{ color: "white" }}>
-                WELC
-                <div
-                  style={{ margin: "4px", width: "20px", height: "21px" }}
-                  className="spinner-grow text-primary"
-                  role="status"
-                >
-                  <span className="visually-hidden">Loading...</span>
-                </div>
-                ME, Let's make your qr menu!
-              </h3>
-
+        <div className="row" style={{ paddingTop: "120px" }}>
+          <div className="col" style={{ paddingTop: "3.2%" }}>
+            <h3 style={{ color: "white" }}>
+              WELC
+              <div
+                style={{ margin: "4px", width: "20px", height: "21px" }}
+                className="spinner-grow text-primary"
+                role="status"
+              >
+                <span className="visually-hidden">Loading...</span>
+              </div>
+              ME, Let's make your qr menu!
+            </h3>
+            <form>
               <input
                 type="email"
                 name="username"
@@ -72,7 +73,7 @@ function Open() {
               />
 
               {email == "" && error && (
-                <div class="alert alert-dark" role="alert">
+                <div className="alert alert-dark" role="alert">
                   <p style={{ color: "orangered" }}>
                     {error.includes("Firebase") &&
                       "Error (auth/invalid-email)."}
@@ -104,40 +105,37 @@ function Open() {
                   Login
                 </button>
               </div>
-            </div>
-            <div class="col" style={{ padding: "35px", marginTop: "1%" }}>
-              <QRCode
-                style={{ boxShadow: "1px 1px 0px 15px white" }}
-                value={"http://qrmenu-bice.vercel.app/demo"}
-                size={228}
-                bgColor={"#ffffff"}
-                fgColor={"#000000"}
-                level={"L"}
-                includeMargin={false}
-                renderAs={"svg"}
-                imageSettings={{
-                  src: "https://upload.wikimedia.org/wikipedia/commons/3/31/QR_icon.svg",
-                  x: null,
-                  y: null,
-                  height: 24,
-                  width: 24,
-                  excavate: true,
-                }}
-              />
-              <div>
-                <Link style={{ color: "white" }} to={"/demo"}>
-                  <button
-                    style={{ width: "300px" }}
-                    className="btn btn-primary"
-                  >
-                    For DEMO
-                  </button>
-                </Link>
-              </div>
-            </div>
-            <Footer />
+            </form>
           </div>
-        </form>
+          <div className="col" style={{ padding: "35px", marginTop: "1%" }}>
+            <QRCode
+              style={{ boxShadow: "1px 1px 0px 15px white" }}
+              value={"http://qrmenu-bice.vercel.app/demo"}
+              size={228}
+              bgColor={"#ffffff"}
+              fgColor={"#000000"}
+              level={"L"}
+              includeMargin={false}
+              renderAs={"svg"}
+              imageSettings={{
+                src: "https://upload.wikimedia.org/wikipedia/commons/3/31/QR_icon.svg",
+                x: null,
+                y: null,
+                height: 24,
+                width: 24,
+                excavate: true,
+              }}
+            />
+            <div>
+              <Link style={{ color: "white" }} to={"/demo"}>
+                <button style={{ width: "300px" }} className="btn btn-primary">
+                  For DEMO
+                </button>
+              </Link>
+            </div>
+          </div>
+          <Footer />
+        </div>
       </div>
     </div>
   );
