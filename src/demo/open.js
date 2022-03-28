@@ -41,7 +41,7 @@ function Open() {
       }}
     >
       <div className="container" style={{ height: "100%", color: "white" }}>
-        <div className="row" style={{ paddingTop: "120px" }}>
+        <div className="row" style={{ paddingTop: "120px", width: "100%" }}>
           <div className="col" style={{ paddingTop: "3.2%" }}>
             <h3 style={{ color: "white" }}>
               WELC
