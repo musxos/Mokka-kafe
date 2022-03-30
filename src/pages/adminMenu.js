@@ -3,8 +3,11 @@ import { db } from "../db/Firebase";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useCollection } from "../hooks/useCollection";
 
+
+
 function AdminMenu() {
   const { user } = useAuthContext();
+  
 
   function deleteProduct(id) {
     const docRef = doc(db, "qrmenu", id);

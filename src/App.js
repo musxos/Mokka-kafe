@@ -8,6 +8,7 @@ import { useAuthContext } from "./hooks/useAuthContext";
 import Page from "./components/Page";
 import { useCollection } from "./hooks/useCollection";
 import Notfound from "./components/notfound";
+import Changename from "./pages/changename";
 
 function App() {
   const { user } = useAuthContext();
@@ -35,6 +36,7 @@ function App() {
         <Route path={"*"} element={<Notfound />} />
         {user && <Route path={"/admin"} element={<Admin />} />}
         {user && <Route path={"/admin/add"} element={<AddProduct />} />}
+        {user && <Route path={"/admin/settings"} element={<Changename />} />}
       </Routes>
     </Router>
   );

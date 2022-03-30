@@ -27,7 +27,7 @@ function Page({ items, item }) {
     <main>
       <section className="menu section">
         <div className="title">
-          <h2>{item.uid}</h2>
+          <h2>{item.displayName}</h2>
         </div>
         <div className="underline"></div>
         <Category categories={categories} filterItems={filterItems} />

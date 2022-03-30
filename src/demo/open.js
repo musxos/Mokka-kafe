@@ -11,39 +11,61 @@ import Adminp from "../pages/adminp";
 function Open() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loginpage, setloginpage] = useState(false);
+  const [username, setUsername] = useState("");
+  const [restaurant, setrestaurant] = useState("");
+  const [register, setregister] = useState(JSON.parse(localStorage.getItem("user")) || false);
+  
   const { signup } = useSignup();
   const { error, login } = useLogin();
   const { authIsReady, user } = useAuthContext();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    signup(email, password);
-
-    console.log(email, password);
-    setEmail("");
-    setPassword("");
+    localStorage.setItem("user", JSON.stringify(!register))
+      signup(email, password,username)
+      setTimeout(() => {
+        login(email, password);
+      }, 800);
+      console.log(email, password)
+ 
+    
   };
 
   const handleSubmitlogin = (e) => {
     e.preventDefault();
-    // console.log(email, password);
-    login(email, password);
-    setPassword("");
+
+   
+      login(email, password);
+      console.log(email, password)
+      setPassword("");
     setEmail("");
+   
+    // console.log(email, password);
+    
+    
   };
   return (
     <div
       style={{
         backgroundColor: "#313131",
-        height: "100vh",
+        minHeight: "100vh",
       }}
     >
       <div className="container" style={{ height: "100%", color: "white" }}>
-        <div className="row" style={{ paddingTop: "120px", width: "100%" }}>
-          <div className="col" style={{ paddingTop: "3.2%" }}>
-            <h3 style={{ color: "white" }}>
+        <h1>
+          <i className="fa fa-qrcode "></i> <i className="fa fa-qrcode "></i>{" "}
+          <i className="fa fa-qrcode "></i>
+        </h1>
+        <div className="row" style={{ paddingTop: "60px", width: "100%" }}>
+          <div
+            className="col-md-1"
+            style={{ padding: "35px", marginTop: "1%", marginLeft: "15px" }}
+          ></div>
+          <div
+            className="col"
+            style={{ paddingTop: "3.2%", marginLeft: "15px",textAlign:"center" }}
+          >
+            <h3 style={{ color: "white"}}>
               WELC
               <div
                 style={{ margin: "4px", width: "20px", height: "21px" }}
@@ -55,6 +77,14 @@ function Open() {
               ME, Let's make your qr menu!
             </h3>
             <form>
+            {!register && <input
+                type="text"
+                name="username"
+                placeholder="restaurant name"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  
+              />}
               <input
                 type="email"
                 name="username"
@@ -71,6 +101,7 @@ function Open() {
                 value={password}
                 required
               />
+              
 
               {email == "" && error && (
                 <div className="alert alert-dark" role="alert">
@@ -81,7 +112,7 @@ function Open() {
                 </div>
               )}
 
-              <div
+<div
                 style={{
                   justifyContent: "space-between",
                   display: "flex",
@@ -107,7 +138,10 @@ function Open() {
               </div>
             </form>
           </div>
-          <div className="col" style={{ padding: "35px", marginTop: "1%" }}>
+          <div
+            className="col"
+            style={{ padding: "35px", marginTop: "1%", marginLeft: "15px" }}
+          >
             <QRCode
               style={{ boxShadow: "1px 1px 0px 15px white" }}
               value={"http://qrmenu-bice.vercel.app/demo"}
@@ -134,6 +168,10 @@ function Open() {
               </Link>
             </div>
           </div>
+          <div
+            className="col-md-1"
+            style={{ padding: "35px", marginTop: "1%", marginLeft: "15px" }}
+          ></div>
           <Footer />
         </div>
       </div>

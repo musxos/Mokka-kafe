@@ -189,11 +189,10 @@ function Add() {
                   includeMargin={false}
                   renderAs={"svg"}
                   imageSettings={{
-                    src: "https://static.zpao.com/favicon.png",
                     x: null,
                     y: null,
-                    height: 24,
-                    width: 24,
+                    height: 2,
+                    width: 2,
                     excavate: true,
                   }}
                 />

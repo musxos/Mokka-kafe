@@ -10,6 +10,7 @@ function Admin() {
   const { logout } = useLogout();
   const { user } = useAuthContext();
   const [qr, setqr] = useState(false);
+  
 
   return (
     <>
@@ -32,6 +33,10 @@ function Admin() {
         >
           <i className="fa fa-qrcode "></i>
         </button>
+        <Link to="/admin/settings" className="w3-bar-item w3-button">
+          <i className="fa fa-wrench"></i>
+        </Link>
+       
 
         <Link
           to="#"
@@ -71,7 +76,6 @@ function Admin() {
                       includeMargin={false}
                       renderAs={"svg"}
                       imageSettings={{
-                        src: "https://upload.wikimedia.org/wikipedia/commons/3/31/QR_icon.svg",
                         x: null,
                         y: null,
                         height: 2,
@@ -80,7 +84,6 @@ function Admin() {
                       }}
                     />
                   )}
-
                   <button
                     type="button"
                     className="btn-close"
