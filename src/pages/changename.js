@@ -34,6 +34,7 @@ import { doc, updateDoc } from 'firebase/firestore';
         .catch((error) => console.log(error.message));
       } )
         
+      window.location.href = "https://qrmenu-bice.vercel.app/admin";
 
         
       };

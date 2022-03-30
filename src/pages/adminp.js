@@ -33,7 +33,7 @@ function Admin() {
       >
         <i className="fa fa-qrcode "></i>
       </button>
-      <Link to={`/${user.uid}`} className="w3-bar-item w3-button">
+      <Link to={`/${user && user.uid}`} className="w3-bar-item w3-button">
         <i className="fa fa-link"></i>
       </Link>
       <Link to="/admin/settings" className="w3-bar-item w3-button">
