@@ -63,7 +63,7 @@ function Open() {
           ></div>
           <div
             className="col"
-            style={{ paddingTop: "3.2%", marginLeft: "15px",textAlign:"center" }}
+            style={{ paddingTop: "2.2%", marginLeft: "15px",textAlign:"center" }}
           >
             <h3 style={{ color: "white"}}>
               WELC
