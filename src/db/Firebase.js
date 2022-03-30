@@ -1,20 +1,22 @@
-// Import the functions you need from the SDKs you need
+
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const key = process.env.REACT_APP_FIREBASE_KEY;
+const authdomain = process.env.REACT_APP_FIREBASE_AUTHDOMAIN;
+const storagebucket = process.env.REACT_APP_FIREBASE_STORAGEBUCKET;
+const messagingsenderid = process.env.REACT_APP_FIREBASE_MESSAGINGSENDERID;
+const appid = process.env.REACT_APP_FIREBASE_APPID;
+
 const firebaseConfig = {
   apiKey: "AIzaSyDSKdYierNrzeAGgLHtm0XeZHI1myibB6s",
-  authDomain: "makeqrmenu.firebaseapp.com",
+  authDomain: `${authdomain}`,
   projectId: "makeqrmenu",
-  storageBucket: "makeqrmenu.appspot.com",
-  messagingSenderId: "252471776846",
-  appId: "1:252471776846:web:7eef5696a7d23429f7151f",
+  storageBucket: `${storagebucket}`,
+  messagingSenderId: `${messagingsenderid}`,
+  appId: `${appid}`,
   measurementId: "G-XCKCQ5G9KN",
 };
 

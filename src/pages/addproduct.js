@@ -54,7 +54,7 @@ function Add() {
       .catch((error) => {
         console.log(error.message);
       });
-    console.log(product);
+   
   }
 
   return (

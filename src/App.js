@@ -42,7 +42,7 @@ function App() {
         {items &&
           items.map((item, i) => (
         
-            user && <Route path={"/admin/settings"} element={<Changename item={item} items={items} />} />
+            user &&  <Route key={i} path={"/admin/settings"} element={<Changename item={item} items={items} />} />
             
           
           ))}

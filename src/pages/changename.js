@@ -8,13 +8,15 @@ import { updateProfile } from 'firebase/auth';
 import { db } from '../db/Firebase';
 import { doc, updateDoc } from 'firebase/firestore';
 
- function Changename({items, item}) {
-  items = items && items.filter((a) => item.uid === a.uid);
-  console.log(items);
+ function Changename({items}) {
+  const { user } = useAuthContext();  
+  const a = items && items.filter((a) => user.uid === a.uid);
+
+
     const { login } = useLogin();
     const { logout } = useLogout();
 
-    const { user } = useAuthContext();
+
 
   const [name, setname] = useState("");
   
@@ -24,21 +26,22 @@ import { doc, updateDoc } from 'firebase/firestore';
     const handleSubmit = async (e,displayName=name) => {
         e.preventDefault()
         updateProfile(user, { displayName });
-      items.map((item) => {
-        const docRef = doc(db, "qrmenu", item.id
+        const docRef = doc(db, "qrmenu", a[0].id
         );
         updateDoc(docRef, { displayName: name })
         .then((response) => {
           console.log(response);
         })
         .catch((error) => console.log(error.message));
-      } )
-        
-      window.location.href = "https://qrmenu-bice.vercel.app/admin";
+      
+        setTimeout(() => {
+          window.location.href = "https://qrmenu-bice.vercel.app/admin";
+        }, 1000);
+     
 
         
       };
- 
+   
   return (
     <>
     <div
