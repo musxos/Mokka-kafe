@@ -34,7 +34,7 @@ function Qrmenu() {
     <main>
       <section className="menu section">
         <div className="title">
-          <h2>{user && user.displayName || user.uid}</h2>
+          <h2>{user && user.displayName || user && user.uid}</h2>
         </div>
         <div className="underline"></div>
         <Category categories={categories} filterItems={filterItems} />

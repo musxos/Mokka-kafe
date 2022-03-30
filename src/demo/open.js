@@ -25,7 +25,7 @@ function Open() {
       signup(email, password,username)
       setTimeout(() => {
         login(email, password);
-      }, 800);
+      }, 950);
       console.log(email, password)
  
     

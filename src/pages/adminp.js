@@ -14,38 +14,39 @@ function Admin() {
 
   return (
     <>
-      <div
-        className="w3-sidebar w3-bar-block w3-light w3-xxlarge"
-        style={{ width: "70px", backgroundColor: "#313131", color: "white" }}
+       <div
+      className="w3-sidebar w3-bar-block w3-light w3-xxlarge"
+      style={{ width: "70px", backgroundColor: "#313131", color: "white" }}
+    >
+      <Link to="/admin" className="w3-bar-item w3-button">
+        <i className="fa fa-home"></i>
+      </Link>
+      <Link to="/admin/add" className="w3-bar-item w3-button">
+        <i className="fa fa-plus"></i>
+      </Link>
+      <button
+        type="button"
+        className="w3-bar-item w3-button"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+        data-bs-whatever="@mdo"
       >
-        <Link to="/admin" className="w3-bar-item w3-button">
-          <i className="fa fa-home"></i>
-        </Link>
-        <Link to="/admin/add" className="w3-bar-item w3-button">
-          <i className="fa fa-plus"></i>
-        </Link>
-        <button
-          type="button"
-          className="w3-bar-item w3-button"
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
-          data-bs-whatever="@mdo"
-        >
-          <i className="fa fa-qrcode "></i>
-        </button>
-        <Link to="/admin/settings" className="w3-bar-item w3-button">
-          <i className="fa fa-wrench"></i>
-        </Link>
-       
+        <i className="fa fa-qrcode "></i>
+      </button>
+      <Link to="/admin/settings" className="w3-bar-item w3-button">
+        <i className="fa fa-wrench"></i>
+      </Link>
+     
 
-        <Link
-          to="#"
-          className="w3-bar-item w3-button"
-          style={{ bottom: "10px", position: "absolute" }}
-        >
-          <i onClick={logout} className="fa fa-power-off"></i>
-        </Link>
-      </div>
+      <Link
+        to="#"
+        className="w3-bar-item w3-button"
+        style={{ bottom: "10px", position: "absolute" }}
+      >
+        <i onClick={logout} className="fa fa-power-off"></i>
+      </Link>
+    </div>
+
 
       <div style={{ paddingLeft: "70px" }}>
         <div className="w3-container" style={{ border: "30px solid white" }}>
@@ -76,6 +77,7 @@ function Admin() {
                       includeMargin={false}
                       renderAs={"svg"}
                       imageSettings={{
+                        src:"",
                         x: null,
                         y: null,
                         height: 2,

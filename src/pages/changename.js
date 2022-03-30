@@ -5,24 +5,36 @@ import { useLogout } from '../hooks/useLogout'
 import { useAuthContext } from '../hooks/useAuthContext';
 import { useLogin } from '../hooks/useLogin';
 import { updateProfile } from 'firebase/auth';
+import { db } from '../db/Firebase';
+import { doc, updateDoc } from 'firebase/firestore';
 
- function Changename() {
+ function Changename({items, item}) {
+  items = items && items.filter((a) => item.uid === a.uid);
+  console.log(items);
     const { login } = useLogin();
     const { logout } = useLogout();
 
     const { user } = useAuthContext();
 
   const [name, setname] = useState("");
-
+  
+ 
 
 
     const handleSubmit = async (e,displayName=name) => {
         e.preventDefault()
         updateProfile(user, { displayName });
-          setTimeout(() => {
-            window.location.href = "https://qrmenu-bice.vercel.app/admin";
-          }, 1000);
-      
+      items.map((item) => {
+        const docRef = doc(db, "qrmenu", item.id
+        );
+        updateDoc(docRef, { displayName: name })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => console.log(error.message));
+      } )
+        
+
         
       };
  
@@ -47,9 +59,15 @@ import { updateProfile } from 'firebase/auth';
       >
         <i className="fa fa-qrcode "></i>
       </button>
+      
+      <Link to={`/${user.uid}`} className="w3-bar-item w3-button">
+        <i className="fa fa-link"></i>
+      </Link>
+
       <Link to="/admin/settings" className="w3-bar-item w3-button">
         <i className="fa fa-wrench"></i>
       </Link>
+
      
 
       <Link
@@ -63,9 +81,10 @@ import { updateProfile } from 'firebase/auth';
 
     <div style={{ paddingLeft: "70px" }}>
       <div className="w3-container" style={{justifyContent:"center",alignItems:"center",display:"flex",height:"90vh", padding:"50px"}}>
-      <label style={{textAlign:"center"}}><h2>Change Restaurant Name </h2>
+      <label style={{textAlign:"center",border:"2px solid black",padding:"50px",borderRadius:"5px"}}><h2 >Change Restaurant Name </h2>
 
       <input
+      style={{border:"1px solid"}}
                 type="text"
                 placeholder="restaurant name"
                 onChange={(e) => setname(e.target.value)}
@@ -74,9 +93,9 @@ import { updateProfile } from 'firebase/auth';
               />
               <button
                   className="btn btn-primary"
-                  style={{ width: "49.1%", color: "white" }}
+                  style={{ width: "49.1%", color: "white",border:"1px solid black" }}
                   value="Login"
-onClick={handleSubmit}                  
+                onClick={handleSubmit}                  
                 >
                   Change
                 </button></label>

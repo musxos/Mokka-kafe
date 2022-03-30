@@ -23,11 +23,12 @@ function Page({ items, item }) {
     const newItems = items.filter((item) => item.category === category);
     newItems.length < 1 ? setMenuItems(items) : setMenuItems(newItems);
   };
+  console.log(item);
   return (
     <main>
       <section className="menu section">
         <div className="title">
-          <h2>{item.displayName}</h2>
+          <h2>{item.displayName || item.uid}</h2>
         </div>
         <div className="underline"></div>
         <Category categories={categories} filterItems={filterItems} />
