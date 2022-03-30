@@ -4,9 +4,11 @@ import { auth } from "../db/Firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 import { useAuthContext } from "../hooks/useAuthContext";
+import { useLogin } from "./useLogin";
 
 export const useSignup = () => {
   const [error, setError] = useState(null);
+  const {login} = useLogin()
 
   const { dispatch } = useAuthContext();
 
@@ -24,7 +26,7 @@ export const useSignup = () => {
       .catch((err) => {
         setError(err.message);
       });
-     
+     login(email,password)
   };
 
   return { error, signup };

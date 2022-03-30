@@ -7,6 +7,8 @@ import { useLogin } from '../hooks/useLogin';
 import { updateProfile } from 'firebase/auth';
 import { db } from '../db/Firebase';
 import { doc, updateDoc } from 'firebase/firestore';
+import QRCode from "qrcode.react";
+
 
  function Changename({items}) {
   const { user } = useAuthContext();  
@@ -104,6 +106,50 @@ import { doc, updateDoc } from 'firebase/firestore';
                   Change
                 </button></label>
         </div>
+        <div
+            style={{
+              justifyContent: "center",
+
+              textAlign: "center",
+            }}
+            className="modal fade"
+            id="exampleModal"
+            tabIndex={-1}
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <div className="modal-header">
+                  {user && (
+                    <QRCode
+                      value={"http://qrmenu-bice.vercel.app/" + user.uid}
+                      size={128}
+                      bgColor={"#ffffff"}
+                      fgColor={"#000000"}
+                      level={"L"}
+                      includeMargin={false}
+                      renderAs={"svg"}
+                      imageSettings={{
+                        src:"",
+                        x: null,
+                        y: null,
+                        height: 2,
+                        width: 2,
+                        excavate: true,
+                      }}
+                    />
+                  )}
+                  <button
+                    type="button"
+                    className="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
   </>
   )

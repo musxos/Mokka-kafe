@@ -31,7 +31,7 @@ function App() {
           items.map((item, i) => (
             <Route
               key={i}
-              path={`/${item.uid}`}
+              path={`/${item ? item.uid: user.uid}`}
               element={<Page item={item} items={items} />}
             />
           ))}

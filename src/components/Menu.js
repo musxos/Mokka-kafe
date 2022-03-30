@@ -17,6 +17,7 @@ function Menu({ items }) {
             </article>
           );
         })}
+        
     </div>
   );
 }

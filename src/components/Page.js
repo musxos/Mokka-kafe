@@ -38,7 +38,7 @@ function Page({ items, item }) {
      
       <section className="menu section">
         <div className="title">
-          <h2>{ items[0].displayName || item.uid}</h2>
+          <h2>{ items[0].displayName || "QR Menu"}</h2>
         </div>
         <div className="underline"></div>
         <Category categories={categories} filterItems={filterItems} />
