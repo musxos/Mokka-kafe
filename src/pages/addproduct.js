@@ -102,40 +102,36 @@ console.log(a);
 
 
       <div className="App" style={{ paddingLeft: "70px" }}>
-        <div className="w3-container" style={{ padding: "30px" }}>
+        <div className="w3-container" style={{ padding: "30px"}}>
           <h2>Add Product</h2>
           <form onSubmit={handleSubmit}>
             <div
-              className="col-auto"
+              className="row"
               style={{
                 margin: "20px",
-
-                justifyContent: "center",
-                display: "flex",
+                textAlign:"center"
               }}
-            >
-              <input
-                style={{ margin: "3px" }}
-                type="text"
-                className="form-control"
-                value={title}
-                onChange={(e) => settitle(e.target.value)}
-                id="title"
-                placeholder="title"
-              />
+            >     <div style={{display:"flex"}}><input
+            style={{ margin: "3px",border:"1px solid grey"  }}
+            type="text"
+            className="form-control"
+            value={title}
+            onChange={(e) => settitle(e.target.value)}
+            id="title"
+            placeholder="title"
+          />
 
-              <input
-                style={{ margin: "3px" }}
-                type="text"
-                className="form-control"
-                value={category}
-                onChange={(e) => setcategory(e.target.value)}
-                id="category"
-                placeholder="category"
-              />
-
-              <input
-                style={{ margin: "3px" }}
+          <input
+            style={{ margin: "3px",border:"1px solid grey"  }}
+            type="text"
+            className="form-control"
+            value={category}
+            onChange={(e) => setcategory(e.target.value)}
+            id="category"
+            placeholder="category"
+          /></div>
+              <div style={{display:"flex"}}><input
+                style={{ margin: "3px",border:"1px solid grey"  }}
                 type="text"
                 className="form-control"
                 value={price}
@@ -145,16 +141,16 @@ console.log(a);
               />
 
               <input
-                style={{ margin: "3px" }}
+                style={{ margin: "3px",border:"1px solid grey"  }}
                 type="text"
                 className="form-control"
                 value={img}
                 onChange={(e) => setimg(e.target.value)}
                 id="image"
                 placeholder="image"
-              />
-              <textarea
-                style={{ margin: "3px" }}
+              /></div>
+   <div style={{display:"flex"}}><textarea
+                style={{ margin: "3px",border:"1px solid grey" }}
                 type="text"
                 className="form-control"
                 value={desc}
@@ -162,10 +158,12 @@ console.log(a);
                 id="desc"
                 placeholder="desc"
               />
+         
               <button
                 style={{
                   margin: "5px",
-                  width: "300px",
+                  width: "30%",
+                  
                   color: "white",
                   backgroundColor: "black",
                   borderRadius: "5px",
@@ -173,7 +171,9 @@ console.log(a);
                 type="submit"
               >
                 Add
-              </button>
+              </button></div>
+              
+              
             </div>
             <AdminMenu />
           </form>
