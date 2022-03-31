@@ -10,7 +10,7 @@ function Qrmenu() {
   const { user } = useAuthContext();
 
   let items = useCollection("qrmenu").documents;
-  items = items && items.filter((item) => item.uid === user.uid);
+  items = items && items.filter((item) => item.uid === user && user.uid);
 
   const allCategories = [
     ...new Set(items && items.map((item) => item.category)),
