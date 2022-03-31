@@ -36,7 +36,7 @@ function Admin({items}) {
         <i onClick={()=> !a[0] && alert("product requirement")} className="fa fa-qrcode "></i>
       </button>
       
-      <Link to={`/${a==0 ? "admin/add":user.uid}`} className="w3-bar-item w3-button">
+      <Link to={`/${a==0 ? "admin/add":user && user.uid}`} className="w3-bar-item w3-button">
         <i onClick={()=> !a[0] && alert("product requirement")} className="fa fa-link"></i>
       </Link>
       <Link to="/admin/settings" className="w3-bar-item w3-button">
