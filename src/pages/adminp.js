@@ -6,11 +6,13 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import QRCode from "qrcode.react";
 import { useState } from "react";
 
-function Admin() {
+function Admin({items}) {
   const { logout } = useLogout();
   const { user } = useAuthContext();
   const [qr, setqr] = useState(false);
-  
+  const a = items && items.filter((a) => user.uid === a.uid);
+
+  console.log(a);
 
   return (
     <>
@@ -31,10 +33,11 @@ function Admin() {
         data-bs-target="#exampleModal"
         data-bs-whatever="@mdo"
       >
-        <i className="fa fa-qrcode "></i>
+        <i onClick={()=> !a[0] && alert("product requirement")} className="fa fa-qrcode "></i>
       </button>
-      <Link to={`/${user && user.uid}`} className="w3-bar-item w3-button">
-        <i className="fa fa-link"></i>
+      
+      <Link to={`/${a==0 ? "admin/add":user.uid}`} className="w3-bar-item w3-button">
+        <i onClick={()=> !a[0] && alert("product requirement")} className="fa fa-link"></i>
       </Link>
       <Link to="/admin/settings" className="w3-bar-item w3-button">
         <i className="fa fa-wrench"></i>
@@ -55,7 +58,7 @@ function Admin() {
         <div className="w3-container" style={{ border: "30px solid white" }}>
           <Qrmenu />
 
-          <div
+          {a && a[0] && <div
             style={{
               justifyContent: "center",
 
@@ -98,7 +101,7 @@ function Admin() {
                 </div>
               </div>
             </div>
-          </div>
+          </div>}
         </div>
       </div>
     </>

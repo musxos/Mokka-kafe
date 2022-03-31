@@ -37,8 +37,8 @@ function App() {
           ))}
 
         <Route path={"*"} element={<Notfound />} />
-        {user && <Route path={"/admin"} element={<Admin />} />}
-        {user && <Route path={"/admin/add"} element={<AddProduct />} />}
+        {user && <Route path={"/admin"} element={<Admin items={items} />} />}
+        {user && <Route path={"/admin/add"} element={<AddProduct items={items}/>} />}
         {items &&
           items.map((item, i) => (
         

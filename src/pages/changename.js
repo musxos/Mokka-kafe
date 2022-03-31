@@ -28,14 +28,17 @@ import QRCode from "qrcode.react";
     const handleSubmit = async (e,displayName=name) => {
         e.preventDefault()
         updateProfile(user, { displayName });
-        const docRef = doc(db, "qrmenu", a[0].id
-        );
-        updateDoc(docRef, { displayName: name })
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => console.log(error.message));
-      
+        if( a[0]){
+          const docRef = doc(db, "qrmenu",  a[0].id
+          );
+          updateDoc(docRef, { displayName: name })
+          .then((response) => {
+            console.log(response);
+          })
+          .catch((error) => console.log(error.message));
+        
+        }
+  
         setTimeout(() => {
           window.location.href = "https://qrmenu-bice.vercel.app/admin";
         }, 1000);
@@ -63,11 +66,11 @@ import QRCode from "qrcode.react";
         data-bs-target="#exampleModal"
         data-bs-whatever="@mdo"
       >
-        <i className="fa fa-qrcode "></i>
+        <i onClick={()=> !a[0] && alert("product requirement")} className="fa fa-qrcode "></i>
       </button>
       
-      <Link to={`/${user.uid}`} className="w3-bar-item w3-button">
-        <i className="fa fa-link"></i>
+      <Link to={`/${a[0] ? user.uid:"admin/add"}`} className="w3-bar-item w3-button">
+        <i onClick={()=> !a[0] && alert("product requirement")} className="fa fa-link"></i>
       </Link>
 
       <Link to="/admin/settings" className="w3-bar-item w3-button">
@@ -106,7 +109,7 @@ import QRCode from "qrcode.react";
                   Change
                 </button></label>
         </div>
-        <div
+       {a[0] && <div
             style={{
               justifyContent: "center",
 
@@ -149,7 +152,7 @@ import QRCode from "qrcode.react";
                 </div>
               </div>
             </div>
-          </div>
+          </div>}
         </div>
   </>
   )

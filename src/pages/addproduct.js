@@ -9,7 +9,7 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import { useLogout } from "../hooks/useLogout";
 import QRCode from "qrcode.react";
 
-function Add() {
+function Add({items}) {
   const { logout } = useLogout();
   const { user } = useAuthContext();
   const [title, settitle] = useState("");
@@ -18,6 +18,9 @@ function Add() {
   const [img, setimg] = useState("");
   const [desc, setdesc] = useState("");
   const [product, setproduct] = useState([]);
+  const a = items && items.filter((a) => user.uid === a.uid);
+
+  
 
   useEffect(() => {
     const q = query(movieCollectionRef, orderBy("timestamp", "desc"));
@@ -56,7 +59,7 @@ function Add() {
       });
    
   }
-
+console.log(a);
   return (
     <>
        <div
@@ -76,11 +79,13 @@ function Add() {
         data-bs-target="#exampleModal"
         data-bs-whatever="@mdo"
       >
-        <i className="fa fa-qrcode "></i>
+        <i onClick={()=> !a[0] && alert("product requirement")} className="fa fa-qrcode "></i>
       </button>
-      <Link to={`/${user.uid}`} className="w3-bar-item w3-button">
-        <i className="fa fa-link"></i>
+      
+      <Link to={`/${a==0 ? "admin/add":user.uid}`} className="w3-bar-item w3-button">
+        <i onClick={()=> !a[0] && alert("product requirement")} className="fa fa-link"></i>
       </Link>
+
       <Link to="/admin/settings" className="w3-bar-item w3-button">
         <i className="fa fa-wrench"></i>
       </Link>
@@ -173,7 +178,7 @@ function Add() {
             <AdminMenu />
           </form>
         </div>
-        <div
+       {a==!0 && <div
           style={{
             justifyContent: "center",
 
@@ -214,7 +219,7 @@ function Add() {
               </div>
             </div>
           </div>
-        </div>
+        </div>}
       </div>
     </>
   );
