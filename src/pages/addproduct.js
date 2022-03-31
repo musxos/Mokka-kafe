@@ -53,6 +53,11 @@ function Add({items}) {
     })
       .then((response) => {
         settitle("");
+        setcategory("");
+        setimg("");
+        setdesc("");
+        setprice("")
+      
       })
       .catch((error) => {
         console.log(error.message);
