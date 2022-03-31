@@ -178,7 +178,7 @@ console.log(a);
             <AdminMenu />
           </form>
         </div>
-       {a==!0 && <div
+       {a && a[0] &&  <div
           style={{
             justifyContent: "center",
 
