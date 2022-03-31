@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuthContext } from "../hooks/useAuthContext";
 import Category from "./Category";
 import Menu from "./Menu";
 
 function Page({ items, item }) {
+  const { user } = useAuthContext();
+
 
   items = items && items.filter((a) => item.uid === a.uid);
 
@@ -28,13 +31,13 @@ function Page({ items, item }) {
   
   return (
     <main>
-      <Link to="/admin">
+      {user &&  <Link to="/admin">
         <button
                   className="btn btn-secondary"
                   
                 >
                    <i className="fa fa-angle-double-left"> </i> Back to Admin Panel
-                </button></Link>
+                </button></Link>}
      
       <section className="menu section">
         <div className="title">
