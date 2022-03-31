@@ -1,6 +1,6 @@
 # QR Menu Creator with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). For video [click](https://i.hizliresim.com/1rdfjhg.png)
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). For video [click](https://www.linkedin.com/feed/update/urn:li:activity:6915254177287782401/)
 
 [![IMAGE ALT TEXT HERE](https://i.hizliresim.com/1rdfjhg.png)](https://www.linkedin.com/feed/update/urn:li:activity:6915254177287782401/)
 
