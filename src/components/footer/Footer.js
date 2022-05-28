@@ -24,10 +24,10 @@ function Footer() {
             color: "white",
             fontSize: "20px",
           }}
-          href="https://www.linkedin.com/in/omersut/"
+          href="https://www.instagram.com/mustocode/"
           target="blank"
         >
-          /omerSut
+          /mustocode
         </a>
       </div>
     </div>
